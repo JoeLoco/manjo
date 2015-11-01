@@ -34,5 +34,11 @@ return [
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    
+    'github' => [
+        'client_id' => 'dcc2d5ed66a10c1c67e9',
+        'client_secret' => 'ef8e6f5eaf38014d07fd1739d8c6103547113f90',
+        'redirect' => 'http://manjo.local/auth-callback',
+    ]
 
 ];

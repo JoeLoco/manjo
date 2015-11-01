@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+
+Route::get('/profile/{id}', 'UserController@profile');
+Route::get('/login', 'UserController@login');
+Route::get('/logout', 'UserController@logout');
+Route::get('/auth-callback', 'UserController@auth');
