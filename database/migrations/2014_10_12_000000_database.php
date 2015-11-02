@@ -12,18 +12,6 @@ class Database extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name',100);
-            $table->string('nick_name',100);
-            $table->integer('github_id')->unique();
-            $table->string('email')->unique();
-            $table->string('avatar');
-            $table->string('phrase');
-            $table->string('working_at',100);
-            $table->rememberToken();
-            $table->timestamps();
-        });
         
         Schema::create('categories', function (Blueprint $table) {
             
@@ -42,6 +30,23 @@ class Database extends Migration
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
     
+            $table->timestamps();
+        });
+        
+        Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name',100);
+            $table->string('nick_name',100);
+            $table->integer('github_id')->unique();
+            $table->string('email')->unique();
+            $table->string('avatar');
+            $table->string('phrase');
+            $table->string('working_at',100);
+
+            $table->integer('love_skill_id')->unsigned()->nullable();
+            $table->foreign('love_skill_id')->references('id')->on('skills');
+            
+            $table->rememberToken();
             $table->timestamps();
         });
         

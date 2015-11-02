@@ -40,7 +40,10 @@ class User extends Model implements AuthenticatableContract,
     
     public function skills()
     {
-        return $this->belongsToMany('App\Models\Skill')->withPivot('level', 'love');
+        return $this->belongsToMany('App\Models\Skill')
+                ->join('categories', 'skills.category_id', '=', 'categories.id')
+                ->select(array('skills.*','categories.name as category_name'))
+                ->withPivot('level', 'love');
     }
     
 }
