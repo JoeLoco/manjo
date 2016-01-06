@@ -26,15 +26,6 @@ class UserController extends Controller {
     }
 
     /**
-     * Logout current user
-     * @return type
-     */
-    public function logout() {
-        Auth::logout();
-        return redirect('/');
-    }
-
-    /**
      * Login github user into manjo and/or create nem accounts using github user
      * @param type $id
      * @return type
@@ -68,6 +59,15 @@ class UserController extends Controller {
 
         return redirect(sprintf('/profile/%s', Auth::user()->id));
     }
+    
+    /**
+     * Logout current user
+     * @return type
+     */
+    public function logout() {
+        Auth::logout();
+        return redirect('/');
+    }    
 
     /**
      * Show users profile page
@@ -141,6 +141,19 @@ class UserController extends Controller {
         }
         
         return response()->json(['result' => false]);
+    }
+    
+    public function deleteSkill() {
+
+        if (!Auth::check()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        SkillUser::where('user_id',Auth::user()->id)
+                ->where('skill_id',Input::get("skill_id"))
+                ->delete();
+
+        return response()->json(['result' => true]);
     }
 
 }

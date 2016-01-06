@@ -19,7 +19,7 @@
     position: relative;
 }
 
-.skill-box .panel-body .remove-skill
+.skill-box .panel-body .delete-skill
 {
     cursor: pointer;
     position: absolute;
@@ -30,7 +30,7 @@
     text-shadow: 1px 1px #DDDDDD;  
 }
 
-.skill-box .panel-body .remove-skill:hover
+.skill-box .panel-body .delete-skill:hover
 {
     color: #000000;
 }

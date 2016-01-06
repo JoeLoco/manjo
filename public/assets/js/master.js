@@ -44,11 +44,29 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 
-    $('.remove-skill').click(function(e) {
+    $('.delete-skill').click(function(e) {
         
         e.stopPropagation();
         
+        var _this = this;
+        var skill_id = $(this).attr('data-skill-id');
         
+        var data = {
+            skill_id: skill_id
+        };
+        
+        $(_this).css('cursor','wait');
+        
+        $.post('/profile/delete-skill', data, function(response) {
+            
+            if(!response.result)
+            {
+                alert('ops');
+            }
+            
+            $(_this).closest('.skill-box').remove();
+            
+        },'json');
         
     });
 

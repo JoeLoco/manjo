@@ -15,7 +15,7 @@
                             <small><?php echo($skill->category_name); ?></small>
                         </div>
 
-                        <i class="fa fa-trash-o remove-skill" data-skill-id="<?php echo $skill->id?>"></i>
+                        <i class="fa fa-trash-o delete-skill" data-skill-id="<?php echo $skill->id?>"></i>
                         
                     </div>   
                     <div class="panel-footer">

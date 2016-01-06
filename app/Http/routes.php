@@ -16,6 +16,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/profile/edit', 'UserController@edit');
 Route::post('/profile/set-skill-level', 'UserController@setSkillLevel');
 Route::post('/profile/set-skill-love', 'UserController@setSkillLove');
+Route::post('/profile/delete-skill', 'UserController@deleteSkill');
 Route::get('/profile/{id}', 'UserController@view');
 
 Route::get('/login', 'UserController@login');
