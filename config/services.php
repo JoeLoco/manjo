@@ -36,8 +36,8 @@ return [
     ],
     
     'github' => [
-        'client_id' => 'dcc2d5ed66a10c1c67e9',
-        'client_secret' => 'ef8e6f5eaf38014d07fd1739d8c6103547113f90',
+        'client_id' => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
         'redirect' => 'http://manjo.local/auth-callback',
     ]
 
